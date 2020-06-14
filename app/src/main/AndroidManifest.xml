@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rainbow.smartring">
+
+    <!--当android:required为true的时候，app只能强制运行在支持BLE功能的设备商，为false的时候，可以运行在所有设备上，-->
+    <!--但某些方法需要手动检测，否则可能存在隐性BUG-->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <!-- 蓝牙权限  -->
+    <!-- If your app targets Android 9 or lower, you can declare
+         ACCESS_COARSE_LOCATION instead. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name=".core.App"
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.TempActivity" />
+        <activity android:name=".ui.HrActivity" />
+        <activity android:name=".ui.OxygenActivity" />
+        <activity android:name=".ui.AnalysisActivity" />
+        <service android:name=".core.bluetooth.BLEService" />
+        <receiver
+            android:name=".core.bluetooth.BluetoothStatusReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.rainbow.statusintent"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+
+</manifest>

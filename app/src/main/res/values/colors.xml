@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <!-- 状态栏颜色 -->
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <!-- 加重普通配色 -->
+    <color name="colorPrimaryVariant">#2196F3</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#2196F3</color>
+    <!-- 加重强调配色 -->
+    <color name="colorSecondaryVariant">#2196F3</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+    <color name="textBlack">#222222</color>
+    <color name="lightGray">#AAAAAA</color>
+</resources>
